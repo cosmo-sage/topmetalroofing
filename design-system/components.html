@@ -1,0 +1,173 @@
+<!doctype html>
+<!-- TopMetalRoofing — reference components. Rendered against tokens.css. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TopMetalRoofing — Component Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--color-bg); color: var(--color-text-primary); font-family: var(--font-body); font-size: var(--text-base); line-height: var(--leading-body); }
+  .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-6); }
+  section { padding: var(--space-24) 0; }
+  @media (max-width: 768px) { section { padding: var(--space-14) 0; } }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: var(--weight-display); line-height: var(--leading-tight); text-transform: uppercase; }
+  .eyebrow { font-size: var(--text-xs); letter-spacing: var(--tracking-eyebrow); text-transform: uppercase; color: var(--color-accent); font-weight: var(--weight-semibold); margin-bottom: var(--space-4); }
+  a { color: var(--color-accent-secondary); }
+  :focus-visible { outline: var(--focus-ring); outline-offset: 2px; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: var(--tap-target); padding: 0 var(--space-8); border-radius: var(--radius-md); font-family: var(--font-display); font-size: 1.25rem; font-weight: var(--weight-display); text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; cursor: pointer; transition: background var(--transition-fast), color var(--transition-fast); }
+  .btn-primary { background: var(--color-accent); color: var(--color-text-on-accent); }
+  .btn-primary:hover { background: var(--color-accent-hover); }
+  .btn-secondary { background: transparent; color: var(--color-text-primary); border: 1px solid var(--color-border-strong); }
+  .btn-secondary:hover { border-color: var(--color-text-secondary); }
+
+  /* Nav */
+  .nav { background: var(--color-surface); border-bottom: 1px solid var(--color-border); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .nav-logo { font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; color: var(--color-text-primary); text-decoration: none; }
+  .nav-logo span { color: var(--color-accent); }
+  .nav-links { display: flex; gap: var(--space-6); list-style: none; }
+  .nav-links a { color: var(--color-text-secondary); text-decoration: none; font-size: var(--text-sm); font-weight: var(--weight-semibold); text-transform: uppercase; letter-spacing: 0.06em; }
+  .nav-links a:hover { color: var(--color-text-primary); }
+  .nav-phone { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-text-primary); text-decoration: none; }
+
+  /* Hero */
+  .hero { background: linear-gradient(rgba(0,0,0,var(--color-overlay-alpha,0.65)), rgba(0,0,0,0.45)), url("hero-placeholder.jpg") center/cover; padding: var(--space-24) 0; }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, var(--text-3xl)); max-width: 18ch; }
+  .hero-spec { color: var(--color-text-secondary); font-size: var(--text-lg); margin: var(--space-6) 0; max-width: var(--measure-max); }
+  .hero-spec strong { color: var(--color-success); font-weight: var(--weight-semibold); }
+  .hero-cta { display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap; }
+
+  /* Proof strip */
+  .proof { background: var(--color-surface); border-block: 1px solid var(--color-border); padding: var(--space-6) 0; }
+  .proof-inner { display: flex; gap: var(--space-8); flex-wrap: wrap; }
+  .proof-item { display: flex; align-items: baseline; gap: var(--space-2); }
+  .proof-num { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-accent); }
+  .proof-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: var(--tracking-eyebrow); color: var(--color-text-secondary); }
+
+  /* Stat blocks */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-6); }
+  .stat { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-8); }
+  .stat-num { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--color-accent); }
+  .stat-label { font-size: var(--text-sm); color: var(--color-text-secondary); margin-top: var(--space-2); }
+
+  /* Process steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+  @media (max-width: 768px) { .steps { grid-template-columns: 1fr; } }
+  .step-num { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--color-border-strong); }
+  .step h3 { font-size: var(--text-xl); margin: var(--space-2) 0; }
+  .step p { color: var(--color-text-secondary); }
+
+  /* Gallery */
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-4); }
+  .gallery-item { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: var(--color-surface); }
+  .gallery-item img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .gallery-caption { padding: var(--space-4); font-size: var(--text-sm); color: var(--color-text-secondary); }
+  .gallery-caption strong { color: var(--color-text-primary); display: block; font-weight: var(--weight-semibold); }
+
+  /* CTA band */
+  .cta-band { background: var(--color-accent); color: var(--color-text-on-accent); padding: var(--space-12) 0; }
+  .cta-band h2 { font-size: var(--text-2xl); }
+  .cta-band .btn { background: var(--color-bg); color: var(--color-text-primary); }
+
+  /* Footer */
+  .footer { background: var(--color-surface); border-top: 1px solid var(--color-border); padding: var(--space-12) 0; font-size: var(--text-sm); color: var(--color-text-secondary); }
+  .footer-phone { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-text-primary); text-decoration: none; display: inline-block; margin-bottom: var(--space-4); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="nav-logo" href="#">TOP<span>METAL</span>ROOFING</a>
+    <ul class="nav-links">
+      <li><a href="#">Roofing Systems</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Financing</a></li>
+      <li><a href="#">Service Areas</a></li>
+    </ul>
+    <a class="nav-phone" href="tel:+15555555555">(555) 555-5555</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <p class="eyebrow">Standing Seam · Metal Shingle · Commercial</p>
+    <h1>A roof you install once</h1>
+    <p class="hero-spec">24-gauge steel rated for <strong>winds up to 120 mph</strong> and severe hail,
+    backed by a <strong>lifetime transferable warranty</strong>. Free inspection, written quote, no pressure.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#quote">Get My Free Quote</a>
+      <a class="btn btn-secondary" href="tel:+15555555555">Call (555) 555-5555</a>
+    </div>
+  </div>
+</header>
+
+<div class="proof">
+  <div class="container proof-inner">
+    <div class="proof-item"><span class="proof-num">4.9★</span><span class="proof-label">180+ reviews</span></div>
+    <div class="proof-item"><span class="proof-num">1,200+</span><span class="proof-label">Roofs installed</span></div>
+    <div class="proof-item"><span class="proof-num">Lifetime</span><span class="proof-label">Transferable warranty</span></div>
+    <div class="proof-item"><span class="proof-num">120 mph</span><span class="proof-label">Wind rating</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <p class="eyebrow">Why Metal</p>
+    <h2 style="font-size:var(--text-2xl); margin-bottom:var(--space-8)">The numbers, not the pitch</h2>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">40–70 yrs</div><div class="stat-label">Service life vs 15–20 for asphalt</div></div>
+      <div class="stat"><div class="stat-num">UL 221</div><div class="stat-label">Class 4 hail impact rating</div></div>
+      <div class="stat"><div class="stat-num">25%</div><div class="stat-label">Typical energy savings vs dark shingle</div></div>
+      <div class="stat"><div class="stat-num">$0 Down</div><div class="stat-label">Financing available on approved credit</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--color-surface); border-block:1px solid var(--color-border)">
+  <div class="container">
+    <p class="eyebrow">The Process</p>
+    <h2 style="font-size:var(--text-2xl); margin-bottom:var(--space-8)">Three steps. Zero surprises.</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><h3>Free Inspection</h3><p>We assess your roof, document everything with photos, and explain what needs attention — and what doesn't.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>Material Selection</h3><p>You choose the profile, color, and finish from full-size samples. Written fixed quote before any work begins.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Professional Install</h3><p>Our factory-trained crews install in days, not weeks. Job site left clean, warranty registered for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <p class="eyebrow">Recent Projects</p>
+    <h2 style="font-size:var(--text-2xl); margin-bottom:var(--space-8)">Completed roofs, just like yours</h2>
+    <div class="gallery">
+      <figure class="gallery-item"><img src="project-placeholder.jpg" alt="Standing seam roof, Tulsa"><figcaption class="gallery-caption"><strong>Standing Seam — Charcoal</strong>Tulsa, OK · 2,400 sq ft</figcaption></figure>
+      <figure class="gallery-item"><img src="project-placeholder.jpg" alt="Metal shingle roof, Broken Arrow"><figcaption class="gallery-caption"><strong>Metal Shingle — Weathered Zinc</strong>Broken Arrow, OK · 1,800 sq ft</figcaption></figure>
+      <figure class="gallery-item"><img src="project-placeholder.jpg" alt="Commercial roof, Sapulpa"><figcaption class="gallery-caption"><strong>Commercial — Standing Seam</strong>Sapulpa, OK · 9,600 sq ft</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:var(--space-6); flex-wrap:wrap">
+    <h2>Ready for the last roof you'll buy?</h2>
+    <a class="btn" href="#quote">Schedule My Free Inspection</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <a class="footer-phone" href="tel:+15555555555">(555) 555-5555</a>
+    <p>Serving: Tulsa · Broken Arrow · Jenks · Bixby · Owasso · Sapulpa · Sand Springs</p>
+    <p style="margin-top:var(--space-4)">Licensed & insured · Lifetime transferable warranty · Financing on approved credit</p>
+  </div>
+</footer>
+
+</body>
+</html>

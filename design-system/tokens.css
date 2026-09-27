@@ -1,0 +1,77 @@
+/* TopMetalRoofing — Design Tokens
+   Dark industrial spec-sheet system. All fg/bg pairs meet WCAG AA (4.5:1). */
+
+:root {
+  /* Color — base */
+  --color-bg: #121417;            /* near-black steel, page background */
+  --color-surface: #1C2025;       /* panels, cards, nav */
+  --color-surface-raised: #242930;/* modals, dropdowns, hover states */
+
+  /* Color — text */
+  --color-text-primary: #F2F4F6;  /* 13.9:1 on bg */
+  --color-text-secondary: #9AA3AD;/* 6.2:1 on bg */
+  --color-text-on-accent: #121417;/* dark text on orange buttons */
+
+  /* Color — brand */
+  --color-accent: #FF6A1A;        /* hot-work orange — primary CTA only */
+  --color-accent-hover: #FF8542;
+  --color-accent-secondary: #4C9AFF; /* steel blue — links, secondary CTAs */
+  --color-success: #3ECF8E;       /* warranty, guarantees, checkmarks */
+  --color-warning: #FFCE07;       /* sparingly — badges, ratings stars */
+
+  /* Color — structural */
+  --color-border: #2E343B;
+  --color-border-strong: #3D444D;
+  --color-overlay: rgba(0, 0, 0, 0.65);
+
+  /* Typography */
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-xs: 0.75rem;      /* 12px labels/eyebrows */
+  --text-sm: 0.875rem;     /* 14px captions */
+  --text-base: 1.0625rem;  /* 17px body */
+  --text-lg: 1.25rem;      /* 20px lead paragraphs */
+  --text-xl: 2rem;         /* 32px subheadings */
+  --text-2xl: 3rem;        /* 48px section heads */
+  --text-3xl: 4.5rem;      /* 72px stat numbers, hero */
+
+  --leading-tight: 1.05;
+  --leading-body: 1.6;
+  --tracking-eyebrow: 0.12em;  /* uppercase eyebrows */
+  --weight-display: 700;
+  --weight-body: 400;
+  --weight-semibold: 600;
+
+  /* Spacing — 4px base */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;      /* 56px mobile section padding */
+  --space-24: 6rem;        /* 96px desktop section padding */
+
+  /* Layout */
+  --container-max: 1200px;
+  --measure-max: 68ch;
+
+  /* Radius — industrial, mostly square */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-full: 9999px;   /* only for pills/badges */
+
+  /* Elevation — subtle on dark */
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.55);
+
+  /* Motion */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+
+  /* Focus */
+  --focus-ring: 2px solid var(--color-accent);
+  --tap-target: 48px;
+}
